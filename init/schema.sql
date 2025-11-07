@@ -1,0 +1,16 @@
+/* DB가 없으면 생성하고, 있으면 사용 */
+CREATE DATABASE IF NOT EXISTS `php-mysql`;
+USE `php-mysql`;
+
+/* user 테이블 생성 (role 포함) */
+CREATE TABLE user (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  email VARCHAR(100) NOT NULL UNIQUE,
+  password VARCHAR(255) NOT NULL,
+  name VARCHAR(50),
+  role VARCHAR(20) NOT NULL DEFAULT 'user' COMMENT '사용자 역할 (user, guardian)'
+);
+
+/* 테스트용 계정 자동 삽입 (비밀번호 '1234'의 해시값) */
+INSERT INTO user (email, password, name) 
+VALUES ('test@test.com', '$2y$10$GQsrx5WmFgCoMDHxIWrmAekiLEFltVrrLNJYokgkMORntr15.V5Fu','test');
