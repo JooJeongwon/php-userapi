@@ -7,7 +7,7 @@ services:
   # 1. User-Service (PHP/Apache)
   user-service:
     build: .  # 현재 폴더(user)의 Dockerfile을 사용해 이미지를 빌드
-    container_name: user # 컨테이너 이름
+    container_name: userapi # 컨테이너 이름
     ports:
       - "8080:80" # Mac의 8080 포트를 컨테이너 80 포트로 연결
     volumes:
@@ -31,7 +31,8 @@ services:
       MYSQL_PASSWORD: 123456
     volumes:
       - mysql-data:/var/lib/mysql # DB 데이터를 Mac에 저장 (컨테이너 삭제돼도 보존됨)
-
+      # init 폴더의 .sql 파일을 /docker-entrypoint-initdb.d/ 에 연결
+      - ./init/schema.sql:/docker-entrypoint-initdb.d/schema.sql
   # 3. Redis 세션 스토어
   redis:
     image: redis:7-alpine
