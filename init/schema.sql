@@ -8,7 +8,6 @@ CREATE TABLE user (
   email VARCHAR(100) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL,
   name VARCHAR(50),
-  role VARCHAR(20) NOT NULL DEFAULT 'user' COMMENT '사용자 역할 (user, guardian)'
 );
 
 /* 테스트용 계정 자동 삽입 (비밀번호 '1234'의 해시값) */
