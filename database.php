@@ -1,8 +1,8 @@
 <?php
-$mysql_host = "mysql"; // MySQL 서버 호스트 이름
-$mysql_user = "php-mysql"; // MySQL 사용자 이름
+$mysql_host = "user-mysql"; // MySQL 서버 호스트 이름
+$mysql_user = "user-mysql"; // MySQL 사용자 이름
 $mysql_password = "123456"; // MySQL 비밀번호
-$mysql_db = "php-mysql"; // 사용할 데이터베이스 이름
+$mysql_db = "user-mysql"; // 사용할 데이터베이스 이름
 $mysql_charset = 'utf8mb4'; // 문자 인코딩 설정
 
 // 데이터베이스 연결(DSN) 정보
